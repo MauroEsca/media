@@ -1,0 +1,198 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "menu"
+    "filtros"
+    "principal"
+    "paginacion"
+    "footer";
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+
+.menu {
+  grid-area: menu;
+  background: #003366;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.menu .logo {
+  font-weight: bold;
+}
+
+.menu .hamburger {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-links {
+  display: none;
+  list-style: none;
+}
+
+.menu-links li {
+  margin: 1rem 0;
+}
+
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.filtros {
+  grid-area: filtros;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  background: #f2f2f2;
+}
+
+.filtros select {
+  margin-left: .5rem;
+  padding: .3rem;
+}
+
+
+.principal {
+  grid-area: principal;
+  padding: 1rem;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.card button {
+  background: #0066cc;
+  border: none;
+  color: white;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #004080;
+}
+
+
+.paginacion {
+  grid-area: paginacion;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: .8rem;
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  border-top: 1px solid #ddd;
+}
+
+.paginacion button {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: .4rem .8rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.paginacion button.active {
+  background: #0066cc;
+  color: #fff;
+}
+
+
+.footer {
+  grid-area: footer;
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer .social {
+  margin-bottom: .5rem;
+}
+
+.footer .social a {
+  margin: 0 .5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+
+@media (min-width: 576px) {
+  .container {
+    grid-template-areas:
+      "menu filtros"
+      "menu principal"
+      "menu paginacion"
+      "menu footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+  }
+
+  .menu .hamburger {
+    display: none;
+  }
+
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .paginacion {
+    position: static;
+    border-top: none;
+  }
+}
